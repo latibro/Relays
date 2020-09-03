@@ -1,0 +1,12 @@
+[
+  {
+    "modid": "relays",
+    "name": "Relays",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "authorList": [
+      "Latibro"
+    ],
+    "credits": "Thanks to to people of teams teams behind MC, Forge, UMC, IR, CC, (incl. CC:T) and OC"
+  }
+]

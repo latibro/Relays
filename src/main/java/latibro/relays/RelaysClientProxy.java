@@ -1,6 +1,9 @@
 package latibro.relays;
 
+import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.client.model.ModelLoader;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -16,6 +19,7 @@ public class RelaysClientProxy extends RelaysCommonProxy {
 
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
+        ModelLoader.setCustomModelResourceLocation(RelaysItems.computerRelayBox, 0, new ModelResourceLocation(RelaysItems.computerRelayBox.getRegistryName(),"inventory"));
     }
 
 }

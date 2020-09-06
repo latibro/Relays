@@ -2,9 +2,9 @@ package latibro.relays;
 
 import latibro.relays.computer.relaybox.ComputerRelayBoxBlock;
 import latibro.relays.computer.relaybox.ComputerRelayBoxItem;
+import latibro.relays.computer.relaybox.ComputerRelayBoxTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -22,6 +22,7 @@ public class RelaysCommonProxy {
     }
 
     public void init(FMLInitializationEvent event) {
+        NetworkRegistry.INSTANCE.registerGuiHandler(RelaysMod.instance, new RelaysGuiHandler());
     }
 
     public void postInit(FMLPostInitializationEvent event) {
@@ -30,6 +31,7 @@ public class RelaysCommonProxy {
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
         event.getRegistry().register(new ComputerRelayBoxBlock());
+        GameRegistry.registerTileEntity(ComputerRelayBoxTileEntity.class, new ResourceLocation("computer_relay_box"));
     }
 
     @SubscribeEvent

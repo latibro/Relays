@@ -19,7 +19,7 @@ public class RelaysClientProxy extends RelaysCommonProxy {
 
     @SubscribeEvent
     public static void registerModels(ModelRegistryEvent event) {
-        ModelLoader.setCustomModelResourceLocation(RelaysItems.computerRelayBox, 0, new ModelResourceLocation(RelaysItems.computerRelayBox.getRegistryName(),"inventory"));
+        //ModelLoader.setCustomModelResourceLocation(RelaysItems.computerRelayBox, 0, new ModelResourceLocation(RelaysItems.computerRelayBox.getRegistryName(),"inventory"));
     }
 
 }

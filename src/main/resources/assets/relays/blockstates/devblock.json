@@ -1,12 +1,23 @@
 {
   "forge_marker": 1,
   "defaults": {
-    "model": "relays:block/devblock"
+    "model": "relays:devblock"
   },
   "variants": {
-    "facing=north": {  },
-    "facing=south": { "y": 180 },
-    "facing=west":  { "y": 270 },
-    "facing=east":  { "y": 90 }
+    "inventory": {
+      "transform": "forge:default-block"
+    },
+    "facing": {
+      "north": {},
+      "south": {
+        "y": 180
+      },
+      "west": {
+        "y": 270
+      },
+      "east": {
+        "y": 90
+      }
+    }
   }
 }

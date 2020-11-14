@@ -1,11 +1,12 @@
 {
-  "parent": "block/cube_all",
+  "parent": "block/cube_directional",
   "textures": {
+    "particle": "relays:blocks/devblock_back",
     "north": "relays:blocks/devblock_front",
     "south": "relays:blocks/devblock_back",
     "east": "relays:blocks/devblock_left",
     "west": "relays:blocks/devblock_right",
     "up": "relays:blocks/devblock_up",
-    "down": "relays:blocks/devblock_down",
+    "down": "relays:blocks/devblock_down"
   }
 }

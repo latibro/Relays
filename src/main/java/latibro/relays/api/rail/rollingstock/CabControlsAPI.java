@@ -14,4 +14,6 @@ public interface CabControlsAPI {
 
     Boolean getIgnitionState();
 
+    void soundHorn();
+
 }

@@ -3,6 +3,7 @@ package latibro.relays.computer.relaybox.oc;
 import latibro.relays.RelaysMod;
 import latibro.relays.computer.relaybox.ComputerRelayBoxTileEntity;
 import latibro.relays.integration.devtest.DevTestImpl;
+import latibro.relays.integration.rail.rollingstock.CabControlsImpl;
 import li.cil.oc.api.Network;
 import li.cil.oc.api.driver.NamedBlock;
 import li.cil.oc.api.machine.Arguments;
@@ -38,6 +39,7 @@ public class ComputerRelayBoxEnvironment extends AbstractManagedEnvironment impl
         return new String[] {
                 "getApi",
                 "getSource",
+                "getCabControl",
                 "oc"
         };
     }
@@ -49,6 +51,8 @@ public class ComputerRelayBoxEnvironment extends AbstractManagedEnvironment impl
             return new Object[]{OCObjectConverter.toOCObject(new DevTestImpl())};
         } else if ("getSource".equals(method)) {
             return new Object[]{OCObjectConverter.toOCObject(computerRelayBox.getSource())};
+        } else if ("getCabControl".equals(method)) {
+            return new Object[]{OCObjectConverter.toOCObject(new CabControlsImpl(computerRelayBox))};
         } else {
             throw new NoSuchMethodException();
         }

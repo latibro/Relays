@@ -6,6 +6,7 @@ import latibro.relays.computer.relaybox.ComputerRelayBoxItem;
 import latibro.relays.computer.relaybox.ComputerRelayBoxTileEntity;
 import latibro.relays.computer.relaybox.cc.ComputerRelayBoxPeripheralProvider;
 import latibro.relays.computer.relaybox.oc.ComputerRelayBoxDriver;
+import latibro.relays.tools.EntityParingToolItem;
 import li.cil.oc.api.API;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -41,6 +42,7 @@ public class RelaysCommonProxy {
     @SubscribeEvent
     public static void registerItems(RegistryEvent.Register<Item> event) {
         event.getRegistry().register(new ComputerRelayBoxItem());
+        event.getRegistry().register(new EntityParingToolItem());
     }
 
 }

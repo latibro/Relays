@@ -1,6 +1,7 @@
 package latibro.relays.computer.relaybox.oc;
 
 import latibro.relays.RelaysMod;
+import latibro.relays.computer.relaybox.ComputerRelayBoxTileEntity;
 import latibro.relays.integration.devtest.DevTestImpl;
 import li.cil.oc.api.Network;
 import li.cil.oc.api.driver.NamedBlock;
@@ -11,10 +12,15 @@ import li.cil.oc.api.network.Node;
 import li.cil.oc.api.network.Visibility;
 import li.cil.oc.api.prefab.AbstractManagedEnvironment;
 
+import java.lang.reflect.InvocationTargetException;
+
 public class ComputerRelayBoxEnvironment extends AbstractManagedEnvironment implements NamedBlock, ManagedPeripheral {
 
-    public ComputerRelayBoxEnvironment() {
+    private final ComputerRelayBoxTileEntity computerRelayBox;
+
+    public ComputerRelayBoxEnvironment(ComputerRelayBoxTileEntity computerRelayBox) {
         setNode(Network.newNode(this, Visibility.Network).withComponent(preferredName(), Visibility.Network).create());
+        this.computerRelayBox = computerRelayBox;
     }
 
     @Override
@@ -31,6 +37,7 @@ public class ComputerRelayBoxEnvironment extends AbstractManagedEnvironment impl
     public String[] methods() {
         return new String[] {
                 "getApi",
+                "getSource",
                 "oc"
         };
     }
@@ -38,7 +45,13 @@ public class ComputerRelayBoxEnvironment extends AbstractManagedEnvironment impl
     @Override
     public Object[] invoke(String method, Context context, Arguments arguments) throws Exception {
         RelaysMod.logger.debug("ComputerRelayBoxEnvironment:invoke", method);
-        return new Object[]{OCObjectConverter.toOCObject(new DevTestImpl())};
+        if ("getApi".equals(method)) {
+            return new Object[]{OCObjectConverter.toOCObject(new DevTestImpl())};
+        } else if ("getSource".equals(method)) {
+            return new Object[]{OCObjectConverter.toOCObject(computerRelayBox.getSource())};
+        } else {
+            throw new NoSuchMethodException();
+        }
     }
 
     public void onConnect(Node node) {

@@ -16,7 +16,8 @@ public class ComputerRelayBoxPeripheralProvider implements IPeripheralProvider {
     @Override
     public IPeripheral getPeripheral(@Nonnull World world, @Nonnull BlockPos blockPos, @Nonnull EnumFacing enumFacing) {
         if (world.getTileEntity(blockPos) instanceof ComputerRelayBoxTileEntity) {
-            return new ComputerRelayBoxPeripheral();
+            ComputerRelayBoxTileEntity computerRelayBox = (ComputerRelayBoxTileEntity) world.getTileEntity(blockPos);
+            return new ComputerRelayBoxPeripheral(computerRelayBox);
         } else {
             return null;
         }

@@ -12,7 +12,8 @@ public class ComputerRelayBoxDriver extends DriverSidedTileEntity {
     @Override
     public ManagedEnvironment createEnvironment(World world, BlockPos blockPos, EnumFacing enumFacing) {
         if (worksWith(world, blockPos, enumFacing)) {
-            return new ComputerRelayBoxEnvironment();
+            ComputerRelayBoxTileEntity computerRelayBox = (ComputerRelayBoxTileEntity) world.getTileEntity(blockPos);
+            return new ComputerRelayBoxEnvironment(computerRelayBox);
         } else {
             return null;
         }

@@ -1,6 +1,8 @@
 # Relays
 Minecraft Mod to automate anything
 
+https://www.curseforge.com/minecraft/mc-mods/relays
+
 Based around a "Relay Box" block, that will be the connection between computer or redstone and an entity or block in the world.
 
 The final idea is that it will be possible to have different "Interface Cards" to put into the "Relay Box", together with "Source Cards" connected to an entity or block in the world.

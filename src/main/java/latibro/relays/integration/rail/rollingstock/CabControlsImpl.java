@@ -15,7 +15,7 @@ public class CabControlsImpl implements CabControlsAPI {
         this.computerRelayBox = computerRelayBox;
     }
 
-    private Locomotive getLocomotive() {
+    protected Locomotive getLocomotive() {
         Entity entity = computerRelayBox.getSource();
         if (entity instanceof ModdedEntity) {
             cam72cam.mod.entity.Entity e = ((ModdedEntity) entity).getSelf();

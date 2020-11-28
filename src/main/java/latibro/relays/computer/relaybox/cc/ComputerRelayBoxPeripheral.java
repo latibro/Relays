@@ -8,6 +8,8 @@ import latibro.relays.RelaysMod;
 import latibro.relays.computer.relaybox.ComputerRelayBoxTileEntity;
 import latibro.relays.computer.relaybox.oc.OCObjectConverter;
 import latibro.relays.integration.devtest.DevTestImpl;
+import latibro.relays.integration.entiry.EntityControlImpl;
+import latibro.relays.integration.rail.rollingstock.CabControlsImpl;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -32,6 +34,8 @@ public class ComputerRelayBoxPeripheral implements IPeripheral {
         return new String[]{
                 "getApi",
                 "getSource",
+                "getCabControl",
+                "getEntityControl",
                 "cc"
         };
     }
@@ -48,6 +52,10 @@ public class ComputerRelayBoxPeripheral implements IPeripheral {
             object = new DevTestImpl();
         } else if ("getSource".equals(method)) {
             object = computerRelayBox.getSource();
+        } else if ("getCabControl".equals(method)) {
+            object = new CabControlsImpl(computerRelayBox);
+        } else if ("getEntityControl".equals(method)) {
+            object = new EntityControlImpl(computerRelayBox);
         } else {
             throw new LuaException("NoSuchMethodException");
         }
